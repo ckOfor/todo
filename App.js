@@ -1,13 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+// react
+import React, { useState, useEffect, useRef } from 'react';
+
+// react-native
 import { StyleSheet, Text, View } from 'react-native';
 
+// third-party
+import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
+
+// navigation
+import RootNavigator from './navigation/landing';
+
 export default function App() {
+  const navigationRef = useNavigationContainerRef();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer
+      ref={navigationRef}
+    >
+      <RootNavigator />
+      <View>
+
+      </View>
+    </NavigationContainer>
   );
 }
 
